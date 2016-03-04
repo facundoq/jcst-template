@@ -1,20 +1,32 @@
+%%
+%% JCST.cls 2016/02/25 version v1.1
+%%
+%% This is the JCST LaTeX class for authors of the Journal of
+%% Computer Science and Technology (http://journal.info.unlp.edu.ar)
+%%
+%%
+%% Contributors:
+%% Facundo Quiroga (2015)
+%% Enzo Rucci (2015-2016)
+%%
+
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{jcst}[2015/12/18 Journal of Computer Science And Technology class]
+\ProvidesClass{jcst}[2016/02/25 Journal of Computer Science and Technology class]
 
 \LoadClass[twocolumn,10pt,a4paper]{article}
 \RequirePackage{etoolbox}
-
+\RequirePackage{flushend}
 
 % General format
 \RequirePackage{microtype} % better font kerning
 \RequirePackage{lmodern} % better font
 
 \pagenumbering{gobble} % remove page numbering
-\RequirePackage[margin=2.5cm]{geometry}
+\RequirePackage[a4paper, margin=2.5cm, headheight=0pt, headsep=0pt,  footskip=0pt]{geometry}
 
 % Title
 % bold and large title
-\title{\Large\bfseries\fontsize{18}{18}\selectfont\centering\@testTitle}
+\title{\Large\bfseries\fontsize{18}{18}\selectfont\centering\vspace{-1cm}\@testTitle}
 \renewcommand*{\title}[1]{\def\@testTitle{#1}}
 \date{} % remove date
 
@@ -33,15 +45,21 @@
 \setlength{\columnsep}{1cm}
 
 %Subsection names and formats
+
 \RequirePackage{sectsty}
+\sectionfont{\fontsize{12}{12}\selectfont\bfseries}
+\subsectionfont{\fontsize{11}{11}\selectfont}
+\subsubsectionfont{\fontsize{10}{10}\selectfont}
 \newcommand{\acknowledgements}[1]{\section*{Acknowledgements}
 #1}
-%\sectionfont{\fontsize{10}{12}\selectfont\MakeUppercase}
-\setcounter{secnumdepth}{2} % don't put numbers on subsubsections
+%\sectionfont{\fontsize{10}{12}\selectfont}
+\setcounter{secnumdepth}{3} % put numbers till subsubsections
+
 
 
 %bibliography style
 \bibliographystyle{ieeetr}
+
 
 % SPECIFIC TWEAKS
 %tables
